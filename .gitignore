@@ -1,0 +1,56 @@
+    # ==================================
+    # Java / Maven
+    # ==================================
+    # Compiled class file
+    *.class
+
+    # Log file
+    *.log
+
+    # Package Files
+    *.jar
+    *.war
+    *.ear
+
+    # virtual machine crash logs
+    hs_err_pid*
+
+    # Build folder
+    /target/
+
+    # IDE settings
+    .idea/
+    *.iml
+    .project
+    .classpath
+    .settings/
+
+    # ==================================
+    # Node / React
+    # ==================================
+    # Dependency directories
+    node_modules/
+    /frontend/node_modules/
+
+    # Build output
+    /frontend/dist/
+    /frontend/build/
+
+    # Logs
+    logs
+    *.log
+    npm-debug.log*
+    yarn-debug.log*
+    yarn-error.log*
+
+    # dotenv environment variables file
+    .env
+    .env.local
+    .env.development.local
+    .env.test.local
+    .env.production.local
+
+    # Optional editor directories
+    .vscode/*
+    !.vscode/extensions.json
+    
