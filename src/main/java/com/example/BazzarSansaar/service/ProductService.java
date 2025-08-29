@@ -26,6 +26,22 @@ public class ProductService {
         return products.stream().map(this::mapToDto).collect(Collectors.toList());
     }
 
+    public ProductDto updateProduct(Long productId, ProductDto productDto) {
+        Product product = productRepository.findById(productId).orElseThrow(() -> new RuntimeException("Product not found"));
+        product.setName(productDto.getName());
+        product.setDescription(productDto.getDescription());
+        product.setPrice(productDto.getPrice());
+        product.setImageUrl(productDto.getImageUrl());
+        // Category update logic can be added here
+        Product updatedProduct = productRepository.save(product);
+        return mapToDto(updatedProduct);
+    }
+
+    public void deleteProduct(Long productId) {
+        Product product = productRepository.findById(productId).orElseThrow(() -> new RuntimeException("Product not found"));
+        productRepository.delete(product);
+    }
+
     private ProductDto mapToDto(Product product) {
         ProductDto productDto = new ProductDto();
         productDto.setId(product.getId());
@@ -45,7 +61,6 @@ public class ProductService {
         product.setDescription(productDto.getDescription());
         product.setPrice(productDto.getPrice());
         product.setImageUrl(productDto.getImageUrl());
-        // Note: Category mapping would be more complex, handled separately
         return product;
     }
 }
